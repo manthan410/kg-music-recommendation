@@ -45,6 +45,7 @@ filter_triples = {'test': np.concatenate((X_train, X_test))}
 save_model(model, model_name_path = 'model_latest_20.pkl')
 # model = restore_model(model_name_path="model_latest.pkl")
 
+#get the entities and their embeddings
 all_entities = np.array(list(set(df.values[:, 0]).union(df.values[:, 2])))
 embeddings = dict(zip(all_entities, model.get_embeddings(all_entities, embedding_type='e')))
 df_embed = pd.DataFrame(embeddings.items(), columns=['entity', 'embeddings'])
@@ -52,6 +53,7 @@ print(df_embed.head(5))
 df_embed.to_csv('embed_latest_20.csv')
 pickle.dump(df_embed, open('embed_latest_20.pkl', 'wb'))
 
+#scoring and ranking the top 10 triples via link prediction to use for recommendation
 triples, scores = query_topn(model, top_n=10,
                                  head='b80344d063b5ccb3212f76538f3d9e43d87dca9e',
                                  relation='listens_to',
