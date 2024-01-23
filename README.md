@@ -2,7 +2,7 @@ https://github.com/sohebT/kg-music-recommendation/assets/87582800/7517c05f-9e00-
 
 #content-based filtering #collabrative filtering
 
-#**Kg-recommendation**
+# Kg-recommendation
 The data gathered regarding the music tracks were used to create a knowledge graph (KG) encapsulating the various relations between the tracks, their artist, genre, etc.
 The graph is traversed in two ways, one via the listeners and another one via the genres, for recommending tracks to the user
 ![](kg.gif)
